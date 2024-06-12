@@ -1,0 +1,73 @@
+{% extends "base/base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'static/styles/css/projetos.css' %}">{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between mb-4">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filtrar Status
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" onclick="filterStatus('Pendência')">Pendência</a>
+                    <a class="dropdown-item" href="#" onclick="filterStatus('Andamento')">Andamento</a>
+                    <a class="dropdown-item" href="#" onclick="filterStatus('Conclusão')">Conclusão</a>
+                </div>
+            </div>
+            <form class="form-inline" onsubmit="return searchProject()">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar Projeto" aria-label="Buscar" id="search-input">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+
+    <section id="main-section" class="hidden main-section d-flex align-items-center">
+        <div class="container projetos" id="project-list">
+            <div class="card" data-status="Pendência">
+                <img src="{% static 'images/your-image.jpg' %}" alt="Palestra Image" class="card-image">
+                <div class="card-content">
+                    <h2>Palestras sobre inovações</h2>
+                    <p>Várias pessoas extensionistas de diversos cursos de TI irão palestrar para crianças e jovens carentes</p>
+                    <div class="status">
+                        <span>Status:</span>
+                        <span class="status-text">Pendência</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-status="Andamento">
+                <img src="{% static 'images/your-image.jpg' %}" alt="Palestra Image" class="card-image">
+                <div class="card-content">
+                    <h2>Palestras sobre inovações</h2>
+                    <p>Várias pessoas extensionistas de diversos cursos de TI irão palestrar para crianças e jovens carentes</p>
+                    <div class="status">
+                        <span>Status:</span>
+                        <span class="status-text">Andamento</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-status="Conclusão">
+                <img src="{% static 'images/your-image.jpg' %}" alt="Palestra Image" class="card-image">
+                <div class="card-content">
+                    <h2>Palestras sobre inovações</h2>
+                    <p>Várias pessoas extensionistas de diversos cursos de TI irão palestrar para crianças e jovens carentes</p>
+                    <div class="status">
+                        <span>Status:</span>
+                        <span class="status-text">Conclusão</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <div class="carregar d-flex justify-content-center mt-4">
+            <button class="btn btn-primary" id="load-more-btn">Carregar Mais</button>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block js %}<script src="{% static 'js/projetos.js' %}" defer></script>{% endblock %}

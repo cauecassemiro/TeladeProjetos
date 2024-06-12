@@ -1,0 +1,33 @@
+.container.projetos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    height: 274px;
+    flex-shrink: 0;
+    display: flex;
+    background-color: #487F47;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.10);
+    width: 788px;
+}
+
+img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+.status {
+    border-radius: 30px;
+    background: linear-gradient(90deg, #0DF205 0%, #0DF205 49.88%, #268C4A 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
