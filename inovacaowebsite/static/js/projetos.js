@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to filter projects by status
     function filterStatus(status) {
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to search projects
     function searchProject() {
         const searchInput = document.getElementById('search-input').value.toLowerCase();
         const cards = document.querySelectorAll('.card');
@@ -24,19 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.style.display = 'none';
             }
         });
+        return false;
     }
 
-    // Function to load more projects
     function loadMoreProjects() {
-        // This is a placeholder. You would typically fetch more projects from the server.
         alert('Load more projects...');
     }
 
-    document.getElementById('filter-status-btn').addEventListener('click', () => {
-        document.querySelector('.dropdown-menu').classList.toggle('show');
-    });
-
     document.getElementById('load-more-btn').addEventListener('click', loadMoreProjects);
+
+    document.querySelector('.form-inline').addEventListener('submit', function(event) {
+        event.preventDefault();
+        searchProject();
+    });
 
     window.filterStatus = filterStatus;
     window.searchProject = searchProject;
