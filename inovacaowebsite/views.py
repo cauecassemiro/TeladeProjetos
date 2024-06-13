@@ -61,3 +61,12 @@ def projetos(request):
   context = {}
   return HttpResponse(template.render(context, request))
   
+def projeto(request, projeto_id):
+  try:
+    chosenProjeto = projeto.objects.get(id=projeto_id)
+    template = loader.get_template('pages/noticias/projetos_especificos.html')
+    context = {'projeto': chosenProjeto,
+               'projetos': projeto.objects.order_by('-data')[:5]}
+    return HttpResponse(template.render(context, request))
+  except projeto.DoesNotExist:
+    return redirect('home')
